@@ -1,0 +1,15 @@
+.auth__signin-link {
+  width: 358px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  border: none;
+  margin: 0;
+  text-align: center;
+}
+
+.auth__signin-link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

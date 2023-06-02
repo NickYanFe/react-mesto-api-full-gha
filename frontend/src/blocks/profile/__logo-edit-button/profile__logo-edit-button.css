@@ -1,0 +1,18 @@
+.profile__logo-edit-button {
+  background: transparent;
+  width: 127.5px;
+  height: 127.5px;
+  border-radius: 50%;
+  align-self: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.profile__logo-edit-button:hover {
+  /* opacity: 0.6; */
+  background-image: url(../../../images/avatar_edit.svg);
+  background-color: rgba(0, 0, 0, 0);
+  background-position: center;
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+}

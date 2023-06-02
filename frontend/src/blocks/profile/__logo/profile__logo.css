@@ -1,0 +1,14 @@
+.profile__logo {
+  width: 127.5px;
+  height: 127.5px;
+  border-radius: 50%;
+  align-self: center;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+.profile__logo:hover {
+  opacity: 0.2;
+}
+

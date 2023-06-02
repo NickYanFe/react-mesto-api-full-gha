@@ -1,0 +1,27 @@
+.page__container {
+  overflow: hidden;
+  min-height: 100vh;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #000000;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .page__container {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page__container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page__container {
+    max-width: 320px;
+  }
+}
