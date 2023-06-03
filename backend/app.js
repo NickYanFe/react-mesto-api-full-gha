@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { errors } = require('celebrate');
+const cors = require('cors');
+
 const router = require('./routes/router');
 const { createUser, login } = require('./controllers/users');
 const {
@@ -15,6 +17,7 @@ const { baseMongoUrl = 'mongodb://127.0.0.1:27017/mestodb', PORT = 3000 } = proc
 const auth = require('./middlewares/auth');
 
 const app = express();
+app.use(cors());
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
