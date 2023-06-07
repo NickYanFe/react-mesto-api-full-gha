@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.nickyanfe.nomoredomains.rocks";
 
 // Проверка ответа от сервера на ошибку
 
@@ -31,7 +31,8 @@ export const authorize = (email, password) => {
   }).then((res) => _checkResponse(res));
 };
 
-export const getContent = (token) => {
+export const getContent = () => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {

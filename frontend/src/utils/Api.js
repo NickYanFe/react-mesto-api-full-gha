@@ -4,7 +4,6 @@
 
 class Api {
   constructor(config) {
-    this.headers = config.headers;
     this.baseURL = config.baseURL;
   }
 
@@ -20,8 +19,12 @@ class Api {
   // получение карточек с сервера методом GET
 
   handleGetCards() {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseURL}/cards`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "GET",
     }).then((res) => this._handleResponse(res));
   }
@@ -29,8 +32,12 @@ class Api {
   // создание карточки и отправка на сервер методом POST
 
   handleCreateCard(item) {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseURL}/cards`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "POST",
       body: JSON.stringify({
         name: item.name,
@@ -41,27 +48,39 @@ class Api {
 
   // удаление карточки с сервера методом DELETE
 
-  handleRemoveCard(id) {
-    return fetch(`${this.baseURL}/cards/${id}`, {
-      headers: this.headers,
+  handleRemoveCard(cardId) {
+    const token = localStorage.getItem("jwt");
+    return fetch(`${this.baseURL}/cards/${cardId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "DELETE",
     }).then((res) => this._handleResponse(res));
   }
 
   // Добавление лайка запросом на сервер методом PUT
 
-  handleLikeAdd(id) {
-    return fetch(`${this.baseURL}/cards/${id}/likes`, {
-      headers: this.headers,
+  handleLikeAdd(cardId) {
+    const token = localStorage.getItem("jwt");
+    return fetch(`${this.baseURL}/cards/${cardId}/likes`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "PUT",
     }).then((res) => this._handleResponse(res));
   }
 
   // Удаление лайка запросом на сервер методом DELETE
 
-  handleLikeRemove(id) {
-    return fetch(`${this.baseURL}/cards/${id}/likes`, {
-      headers: this.headers,
+  handleLikeRemove(cardId) {
+    const token = localStorage.getItem("jwt");
+    return fetch(`${this.baseURL}/cards/${cardId}/likes`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "DELETE",
     }).then((res) => this._handleResponse(res));
   }
@@ -69,8 +88,12 @@ class Api {
   // получаем данные пользователя с сервера методом GET
 
   getUserInfo() {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseURL}/users/me`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "GET",
     }).then((res) => this._handleResponse(res));
   }
@@ -78,8 +101,12 @@ class Api {
   // отправляем данные пользователя на сервер методом PATCH
 
   setUserInfo(data) {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseURL}/users/me`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "PATCH",
       body: JSON.stringify({
         name: data.name,
@@ -91,8 +118,12 @@ class Api {
   // отправляем данные аватара на сервер методом PATCH
 
   setUserAvatar(data) {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseURL}/users/me/avatar`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       method: "PATCH",
       body: JSON.stringify({
         avatar: data.avatar,
@@ -102,9 +133,9 @@ class Api {
 }
 
 export const api = new Api({
-  baseURL: "https://mesto.nomoreparties.co/v1/cohort-60/",
+  baseURL: "https://api.nickyanfe.nomoredomains.rocks",
   headers: {
-    authorization: "d2dcd824-54c6-405c-a2b8-915a4a5b4711",
+    // authorization: "d2dcd824-54c6-405c-a2b8-915a4a5b4711",
     "Content-Type": "application/json",
   },
 });
