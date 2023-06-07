@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.109.51
+IP 158.160.109.51
 
 Frontend https://nickyanfe.nomoredomains.rocks
 
